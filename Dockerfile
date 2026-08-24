@@ -21,10 +21,6 @@ ENV LANG=C.UTF-8 \
 
 RUN microdnf install -y \
 		pciutils jq \
-		hwloc-libs \
-		boost-atomic boost-chrono boost-container boost-filesystem \
-		boost-json boost-locale boost-log boost-regex \
-		boost-system boost-thread \
 		libicu \
 		python${PYTHON_VERSION} && \
 	microdnf -y upgrade && \
@@ -37,9 +33,9 @@ RUN microdnf install -y \
 	# - curl-minimal-7.76.1-31.el9_6.1 (CVE-2024-8096, CVE-2024-9681)
 	# - python3/python3-libs/python-unversioned-command-3.9.23-2.el9 (CVE-2025-8291)
 	# - systemd-libs-252-55.el9_7.2 (CVE-2025-4598)
-	rpm -e --nodeps curl-minimal libcurl-minimal 2>/dev/null || true && \
-	rpm -e --nodeps python3 python3-libs python-unversioned-command 2>/dev/null || true && \
-	rpm -e --nodeps systemd-libs 2>/dev/null || true
+    { rpm -e --nodeps curl-minimal libcurl-minimal 2>/dev/null || true ; } && \
+	{ rpm -e --nodeps python3 python3-libs python-unversioned-command 2>/dev/null || true ; } && \
+	{ rpm -e --nodeps systemd-libs 2>/dev/null || true ; }
 
 LABEL io.k8s.display-name="IBM Spyre Device Plugin Init Container"
 LABEL name="IBM Spyre Device Plugin Init Container"
