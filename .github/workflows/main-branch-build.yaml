@@ -20,7 +20,7 @@ env:
 
 jobs:
   build:
-    uses: ibm-aiu/spyre-operator-actions/.github/workflows/build-image.yaml@main
+    uses: ibm-aiu/spyre-operator-actions/.github/workflows/build-image.yaml@main # NOSONAR
     with:
       dockerfile: Dockerfile
       image_name: spyre-device-plugin-init

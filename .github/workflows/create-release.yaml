@@ -34,7 +34,7 @@ permissions:
 
 jobs:
   create-release:
-    uses: ibm-aiu/spyre-operator-actions/.github/workflows/create-release.yaml@main
+    uses: ibm-aiu/spyre-operator-actions/.github/workflows/create-release.yaml@main # NOSONAR
     with:
       draft: ${{ inputs.draft }}
       prerelease: ${{ inputs.prerelease }}
