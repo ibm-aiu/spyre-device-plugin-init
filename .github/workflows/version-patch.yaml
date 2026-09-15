@@ -22,6 +22,6 @@ permissions:
 
 jobs:
   version-patch:
-    uses: ibm-aiu/spyre-operator-actions/.github/workflows/version-patch.yaml@main
+    uses: ibm-aiu/spyre-operator-actions/.github/workflows/version-patch.yaml@main # NOSONAR
     with:
       version_bump: ${{ inputs.version_bump }}
